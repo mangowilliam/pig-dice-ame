@@ -2,5 +2,33 @@ body {
   background-size: cover;
   background-color: #cccccc;
   text-align: center;
-  color: green;
+  color: #000;
+}
+
+.slider {
+  position: relative;
+  background: #F00;
+  width: 1000px;
+  height: 200px;
+  margin: auto;
+  display:
+}
+
+.left {
+  position: absolute;
+  top: 0px;
+  width: 50%;
+  height: 150%;
+  background: #00ff00;
+  left: 0px;
+  z-index: 2;
+}
+
+.right {
+  position: absolute;
+  top: 0px;
+  width: 50%;
+  height: 150%;
+  background: #0000ff;
+  right: 0px;
 }
