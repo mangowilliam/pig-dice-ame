@@ -1,6 +1,6 @@
 function gamer(gamerId) {
   this.score = 0;
-  this.gamer1CurrentTotalScore = 0;
+  this.gamerCurrentTotalScore = 0;
   this.turn = 0;
   this.gamerId = gamerId;
 }
@@ -21,4 +21,14 @@ answer.prototype.switchGamers = function() {
     this.gamers[1].turn = 0;
   }
 }
+
+answer.prototype.gamerCurrentTotalScore = function(gamer) {
+  gamer.score += gamer.gamerCurrentTotalScore;
+  gamerCurrentTotalScore = 0;
+}
+answer.prototype.throw = function() {
+  var outCome = math.floor((math.random() * 6) + 1);
+  if (this.over === 0) {
+    this.dice = outCome;
+  }
 }
