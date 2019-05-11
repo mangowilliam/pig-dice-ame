@@ -52,5 +52,24 @@ answer.prototype.hold = function() {
   if (this.gamers[0].turn === 1) {
     this.gamerCurrentTotalScore(this.gamers[0]);
     this.switchGamer();
+  } else if (this.gamers[1].turn === 1) {
+    this.gamerCurrentTotalScore(this.gamers[1]);
+    this.switchGamer();
+  }
+}
+answer.prototype.pickgamer = function() {
+  this.gamers[0].turn = 1;
+}
+answer.prototype.checkGame = function() {
+  if (this.gamers[0].score >= 100) {
+    this.gamers[1].turn = 0;
+    this.gamers[0].turn = 0;
+    this.winner = "gamer 1 ";
+    this.over = 1;
+  } else if (this.gamers[1].score >= 100) {
+    this.gamers[1].turn = 0;
+    this.players[0].turn = 0;
+    this.winner = "gamer 2 ";
+    this.over = 1;
   }
 }
