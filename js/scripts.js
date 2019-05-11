@@ -73,3 +73,14 @@ answer.prototype.checkGame = function() {
     this.over = 1;
   }
 }
+
+function switchClass(gamer1, gamer2) {
+  if (gamer1.turn === 1) {
+    $("div.gamer1").addClass("display");
+    $("div.gamer2").removeClass("display");
+  } else if (gamer2.turn === 1) {
+    $("div.gamer1").removeClass("display");
+    $("div.gamer2").addClass("display");
+
+  }
+}
