@@ -81,6 +81,20 @@ function switchClass(gamer1, gamer2) {
   } else if (gamer2.turn === 1) {
     $("div.gamer1").removeClass("display");
     $("div.gamer2").addClass("display");
-
   }
+}
+
+function showScore(gamer1, gamer2) {
+  $(".gamer1CurrentTotalScore").text("currentTotal:" + gamer1.gamerCurrentTotalScore);
+  $(".gamer2CurrentTotalScore").text("currentTotal:" + gamer2.gamerCurrentTotalScore);
+
+  $(".gamer1Total").text("Total: " + gamer1.score);
+  $(".gamer2Total").text("Total: " + gamer2.score);
+}
+
+function showDice(dice) {
+  if (dice >= 1) {
+    $("img").attr("src", "img/" + dice + ".png").hide().fadeIn();
+  }
+
 }
