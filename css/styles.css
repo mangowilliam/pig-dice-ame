@@ -1,8 +1,13 @@
 body {
-  background-size: cover;
+  background-image: url("../img/bg.jpg");
   background-color: #cccccc;
   text-align: center;
   color: #000;
+}
+
+img {
+  height: 150px;
+  width: 150px;
 }
 
 .row {
