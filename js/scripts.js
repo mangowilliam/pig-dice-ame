@@ -11,7 +11,7 @@ function answer() {
   this.over = 0;
   this.dice = 0;
 }
-answer.prototype.switchGamers = function() {
+answer.prototype.switchGamer = function() {
   if (this.gamers[0].turn === 1) {
     this.gamers[0].turn = 0;
     this.gamers[1].turn = 1;
@@ -31,4 +31,21 @@ answer.prototype.throw = function() {
   if (this.over === 0) {
     this.dice = outCome;
   }
-}
+  if this.gamers[0].turn === 1 {
+    if (outCome !== 1) {
+      this.gamers[0].gamerCurrentTotalScore += outCome;
+    } else {
+      this.gamers[0].gamerCurrentTotalScore = 0;
+      this.switchGamer();
+    }
+
+  } else if (this.gamers[1].turn === 1) {
+    if (outCome !== 1) {
+      this.gamers[1].gamerCurrentTotalScore = 0;
+    } else {
+      this.gamers[1].gamerCurrentTotalScore = 0;
+      this.switchGamer();
+    }
+
+  }
+};
