@@ -46,6 +46,11 @@ answer.prototype.throw = function() {
       this.gamers[1].gamerCurrentTotalScore = 0;
       this.switchGamer();
     }
-
   }
 };
+answer.prototype.hold = function() {
+  if (this.gamers[0].turn === 1) {
+    this.gamerCurrentTotalScore(this.gamers[0]);
+    this.switchGamer();
+  }
+}
