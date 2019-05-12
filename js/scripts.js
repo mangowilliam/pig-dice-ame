@@ -98,3 +98,19 @@ function showDice(dice) {
   }
 
 }
+$(document).ready(function() {
+      var gameChoice = $('input:radio[name=gameChoice]:checked').val();
+      var player1 = new gamer("mister");
+      var player2 = new gamer(gameChoice);
+      var totalAnswer = new answer();
+
+
+      totalAnswer.gamer.push(gamer1, gamer2);
+      totalAnswer.pickgamer();
+
+
+
+      $("#gameChoice").click(function() {
+            gameChoice = $('input:radio[name=gameChoice]:checked').val();
+            if (gameChoice === "ai") {
+              toelTheReferee.players[1].playerID = "ai";
