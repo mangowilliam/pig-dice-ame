@@ -1,5 +1,5 @@
 body {
-  background-image: url("../img/bg.jpg");
+  background-image: url("../img/dice.png");
   background-color: #cccccc;
   text-align: center;
   color: #000;
@@ -8,6 +8,14 @@ body {
 img {
   height: 150px;
   width: 150px;
+}
+
+figure {
+  width: 500px;
+  border: 15px solid green;
+  padding: 20px;
+  margin: auto;
+  background: grey;
 }
 
 .row {

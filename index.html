@@ -19,7 +19,7 @@
 <body>
   <div class="container">
     <figure>
-      <img src=" img/dice.png">
+      <img src=" img/dice1.png">
       <figcaption>
         <h1>PIG DICE GAME</h1>
       </figcaption>
@@ -37,43 +37,45 @@
       <p> The first player to score 100 points wins the game.</p>
     </div>
     <div class=jumbotron>
-      <form class="name" action="index.html" method="post">
-        <input type="text" name="pone" placeholder="enter your name" required>
-        <input type="text" name="ptwo" placeholder="enter your name" required><br /><br />
-        <input type="submit" value="play" id="play">
+      <form class="names" action="index.html" method="post">
+        <input type="text" name="gone" id="gamer1" placeholder="enter your name gamer1" required>
+        <input type="text" name="gtwo" id="gamer2" placeholder="enter your name amer2" required><br /><br />
+        <button class="btn" id="play">play</button>
       </form>
     </div>
     <div class="row">
       <div class="col-md-4">
         <div id="left">
-          <h3>Gamer 1</h3>
-          <div class="gamer1Name"></div>
-          <div class="gamer1Score"></div>
-          <div class="gamer1TotalScore">total:0</div>
+          <div class="gamer1Name">GAMER1:</div><br /><br />
+          <div class="gamer1Score">rollScore:</div><br /><br />
+          <div class="gamer1OngoingScore">ongoingScore:</div><br /><br />
+          <div class="gamer1TotalScore">totalScore:</div>
         </div>
       </div>
       <div class="col-md-4">
         <div id="middle">
-          <h3>game panel</h3>
+          <h3>GAMING PANEL</h3>
           <button class="btn-new">New game</button>
           <button class="btn-roll">Roll dice</button>
           <button class="btn-hold">Hold</button><br /><br />
-          <img src=" img/dice1.png">
-          <div class="gamer1CurrentTotalScore">currentTotal: 0 </div>
-          <div class="gamer2CurrentTotalScore"> currentTotal: 0 </div>
+          <img src=" img/die1.png">
           <div id="winner"></div>
         </div>
       </div>
       <div class="col-md-4">
         <div id="right">
-          <h3>Gamer 2</h3>
-          <div class="gamer2Name"></div>
-          <div class="gamer2Score"></div>
-          <div class="gamer2TotalScore">total:0</div>
+          <div class="gamer2Name">GAMER2:</div><br /><br />
+          <div class="gamer2Score">rollScore:</div><br /><br />
+          <div class="gamer2OngoingScore">ongoingScore:</div><br /><br />
+          <div class="gamer2TotalScore">totalScore:</div>
         </div>
       </div>
     </div>
   </div>
-</body>
+  <script src="js/jquery.min.js"></script>
+  <script src=" js/jquery-3.4.0.js"> </script>
+  <script src="js/scripts.js">
+    < /body>
 
-</html>
+    <
+    /html>
