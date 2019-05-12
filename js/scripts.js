@@ -21,8 +21,15 @@ gamer.prototype.froll = function() {
     this.ongoingScore += this.score;
   }
 }
+
+gamer.prototype.hold = function() {
+  this.totalscore += this.ongoingScore;
+  this.ongoingScore = 0;
+  alert(this.gamerName + ", next!");
+}
+
 gamer.prototype.checkWinner = function() {
-  if (this.totalscore >= 100) {
+  if (this.totalScore >= 100) {
     alert(this.gamerName + " You won!!!");
   }
 }
@@ -34,21 +41,6 @@ gamer.prototype.newGame = function() {
 }
 
 $(document).ready(function() {
-  $("button#play").click(function(event) {
-    gamer1 = new gamer(true);
-    gamer2 = new gamer(false);
-    $("#gameOn").show();
-    $("#login").hide();
-
-    var gamer1Name = $(".gamer1Name").val();
-    $(".gamer1Name").text(gamer1Name);
-
-    var gamer2Name = $(".gamer2Name").val();
-    $(".gamer2Name").text(gamer2Name);
-
-    gamer1.gamerName = gamer1Name;
-    gamer2.gamerName = pgamer2Name;
-  });
 
   $("button.btn-new").click(function(event) {
     clearValues();
@@ -61,21 +53,21 @@ $(document).ready(function() {
     $(".gamer2OngoingScore").empty();
     $(".gamer2TotalScore").empty();
   });
-  $("button.btn-roll").click(function(event) {
+  $("button.btn-roll1").click(function(event) {
     gamer1.score = diceRandom();
     $(".gamer1OngoingScore").text(gamer1.score);
     gamer1.froll();
     $(".gamer1TotalScore").text(gamer1.OngoingScore);
   });
 
-  $("button.btn-roll").click(function(event) {
+  $("button.btn-roll2").click(function(event) {
     gamer2.score = diceRandom();
     $(".gamer2OngoingScore").text(gamer2.score);
     gamer2.froll();
     $(".gamer2TotalScore").text(gamer2.OngoingScore);
   });
 
-  $("button.btn-hold").click(function(event) {
+  $("button.btn-hold1").click(function(event) {
     gamer1.hold();
     $(".gamer1TotalScore").text(gamer1.totalScore);
     $(".gamer1OngoingScore").empty();
@@ -83,12 +75,12 @@ $(document).ready(function() {
     gamer1.checkWinner();
   });
 
-  $("button.btn-hold").click(function(event) {
+  $("button.btn-hold2").click(function(event) {
     gamer2.hold();
     $(".gamer2TotalScore").text(gamer2.totalScore);
     $(".gamer2OngoingScore").empty();
     $(".gamer2Score").empty();
     gamer2.checkWinner();
   });
-
+  event.preventDefault();
 });

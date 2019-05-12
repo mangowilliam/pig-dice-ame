@@ -41,9 +41,17 @@ figure {
   height: 348px;
 }
 
+h2 {
+  color: #00ff00;
+}
+
 #right {
   position: relative;
   top: 0px;
   background: #0000ff;
   height: 348px;
+}
+
+#login {
+  display: none;
 }
