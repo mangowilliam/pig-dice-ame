@@ -9,11 +9,11 @@ function gamer(turn) {
   this.turn = turn;
   this.gamerName;
 }
-
 gamer.prototype.froll = function() {
   var diceRandom = Math.floor(Math.random() * 6) + 1
   return diceRandom;
-  if (this.score === 1) {
+  this.score += diceRandom;
+  if (this.diceRandom === 1) {
     this.ongoingScore = 0;
     alert("sorry " + this.gamerName + "you scored a one");
   } else {
@@ -41,8 +41,8 @@ gamer.prototype.newGame = function() {
 
 $(document).ready(function() {
 
-  $("button.btn-new").click(function(event) {
-    clearValues();
+  $(".btn-new").click(function(event) {
+
     gamer1.newGame();
     gamer2.newGame();
     $(".gamer1Score").empty();
@@ -52,20 +52,18 @@ $(document).ready(function() {
     $(".gamer2OngoingScore").empty();
     $(".gamer2TotalScore").empty();
   });
+
   $(".btn-roll1").click(function(event) {
+    gamer.froll;
     $(".gamer1Score").text(gamer1.froll);
-    gamer1.score = diceRandom;
-    $(".gamer1OngoingScore").text(gamer1.score);
-    gamer1.ongoingScore = (diceRandom += gamer1.ongoingScore);
-    $(".gamer1TotalScore").text(gamer1.OngoingScore);
+    $(".gamer1OngoingScore").text(gamer1.ongoingScore);
+    $(".gamer1TotalScore").text(gamer1.totalScore);
   });
 
   $(".btn-roll2").click(function(event) {
     $(".gamer2Score").text(gamer1.froll);
-    gamer2.score = diceRandom;
-    $(".gamer2OngoingScore").text(gamer2.score);
-    gamer2.froll;
-    $(".gamer2TotalScore").text(gamer2.OngoingScore);
+    $(".gamer2OngoingScore").text(gamer2.ongoingScore);
+    $(".gamer2TotalScore").text(gamer2.totalScore);
   });
 
   $(".btn-hold1").click(function(event) {
