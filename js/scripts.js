@@ -13,7 +13,7 @@ gamer.prototype.froll = function() {
   var diceRandom = Math.floor(Math.random() * 6) + 1
   return diceRandom;
   this.score += diceRandom;
-  if (this.diceRandom === 1) {
+  if (this.score === 1) {
     this.ongoingScore = 0;
     alert("sorry " + this.gamerName + "you scored a one");
   } else {
@@ -38,11 +38,16 @@ gamer.prototype.newGame = function() {
   this.totalScore = 0;
   this.gamerName = "";
 }
+var clearValues = function() {
+  $(".gamer1Name").val("newgamer");
+  $(".gamer2Name").val("newgamer");
+}
 
+
+//user
 $(document).ready(function() {
-
+  clearValues();
   $(".btn-new").click(function(event) {
-
     gamer1.newGame();
     gamer2.newGame();
     $(".gamer1Score").empty();
@@ -67,7 +72,7 @@ $(document).ready(function() {
   });
 
   $(".btn-hold1").click(function(event) {
-    gamer1.hold();
+    gamer1.hold;
     $(".gamer1TotalScore").text(gamer1.totalScore);
     $(".gamer1OngoingScore").empty();
     $(".gamer1Score").empty();
@@ -75,11 +80,13 @@ $(document).ready(function() {
   });
 
   $(".btn-hold2").click(function(event) {
-    gamer2.hold();
+    gamer2.hold;
     $(".gamer2TotalScore").text(gamer2.totalScore);
     $(".gamer2OngoingScore").empty();
     $(".gamer2Score").empty();
     gamer2.checkWinner();
+    event.preventDefault();
+
   });
 
 });
