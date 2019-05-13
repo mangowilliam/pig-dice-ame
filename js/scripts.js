@@ -1,11 +1,8 @@
-var gamer1 = "";
-var gamer2 = "";
-
-var diceRandom = function() {
-  return math.floor(6 * math.random()) + 1;
-}
+var gamer1 = new gamer();
+var gamer2 = new gamer();
 
 function gamer(turn) {
+  this.diceRandom = 0;
   this.score = 0;
   this.ongoingScore = 0;
   this.totalScore = 0;
@@ -14,9 +11,11 @@ function gamer(turn) {
 }
 
 gamer.prototype.froll = function() {
+  var diceRandom = Math.floor(Math.random() * 6) + 1
+  return diceRandom;
   if (this.score === 1) {
     this.ongoingScore = 0;
-    alert("sorry " + this.gamerName + you scored a one);
+    alert("sorry " + this.gamerName + "you scored a one");
   } else {
     this.ongoingScore += this.score;
   }
@@ -53,17 +52,20 @@ $(document).ready(function() {
     $(".gamer2OngoingScore").empty();
     $(".gamer2TotalScore").empty();
   });
-  $("button.btn-roll1").click(function(event) {
-    gamer1.score = diceRandom();
+  $(".btn-roll1").click(function(event) {
+
+    $(".gamer1Score").text(gamer1.froll);
+    gamer1.score = diceRandom;
     $(".gamer1OngoingScore").text(gamer1.score);
     gamer1.froll();
     $(".gamer1TotalScore").text(gamer1.OngoingScore);
   });
 
   $("button.btn-roll2").click(function(event) {
-    gamer2.score = diceRandom();
+    $(".gamer2Score").text(gamer1.froll);
+    gamer2.score = diceRandom;
     $(".gamer2OngoingScore").text(gamer2.score);
-    gamer2.froll();
+    gamer2.froll;
     $(".gamer2TotalScore").text(gamer2.OngoingScore);
   });
 
@@ -82,5 +84,5 @@ $(document).ready(function() {
     $(".gamer2Score").empty();
     gamer2.checkWinner();
   });
-  event.preventDefault();
+
 });

@@ -6,8 +6,8 @@ body {
 }
 
 img {
-  height: 150px;
-  width: 150px;
+  height: 100px;
+  width: 100px;
 }
 
 figure {
@@ -16,6 +16,11 @@ figure {
   padding: 20px;
   margin: auto;
   background: grey;
+}
+
+.dice {
+  display: inline-block;
+  text-align: center;
 }
 
 #gameOn {
