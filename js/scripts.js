@@ -1,38 +1,45 @@
-var gamer1 = new gamer();
-var gamer2 = new gamer();
+var gamer1 = new Gamer();
+var gamer2 = new Gamer();
 
-function gamer(turn) {
+function Gamer(turn) {
   this.diceRandom = 0;
-  this.score = 0;
   this.ongoingScore = 0;
   this.totalScore = 0;
   this.turn = turn;
   this.gamerName;
 }
-gamer.prototype.froll = function() {
-  var diceRandom = Math.floor(Math.random() * 6) + 1
-  return diceRandom;
-  this.score += diceRandom;
-  if (this.score === 1) {
+
+Gamer.prototype.froll = function() {
+  var diceRandom = Math.floor((Math.random() * 6) + 1);
+  if (diceRandom === 1) {
     this.ongoingScore = 0;
-    alert("sorry " + this.gamerName + "you scored a one");
   } else {
-    this.ongoingScore += this.score;
-  }
-}
+    this.ongoingScore += diceRandom;
+  };
+  return diceRandom;
 
-gamer.prototype.hold = function() {
-  this.totalscore += this.ongoingScore;
+  /*var die = document.getElementById("#die-result");
+  if (diceRandom === 1) pic.setAttribute("src", "die1.png");
+  else if (diceRandom === 2) pic.setAttribute("src", "die2.png");
+  else if (diceRandom === 3) pic.setAttribute("src", "die3.png");
+  else if (diceRandom === 4) pic.setAttribute("src", "die4.png");
+  else if (diceRandom === 5) pic.setAttribute("src", "die5.png");
+  else pic.setAttribute("src", "die1.png");*/
+
+}
+Gamer.prototype.score = function() {
+
+}
+Gamer.prototype.hold = function() {
+  this.totalScore += this.ongoingScore;
   this.ongoingScore = 0;
-  alert(this.gamerName + ", next!");
+  return this.totalScore;
 }
 
-gamer.prototype.checkWinner = function() {
-  if (this.totalScore >= 100) {
-    alert(this.gamerName + " You won!!!");
-  }
+Gamer.prototype.checkWinner = function() {
+  if (this.totalScore >= 100) {}
 }
-gamer.prototype.newGame = function() {
+Gamer.prototype.newGame = function() {
   this.score = 0;
   this.ongoingScore = 0;
   this.totalScore = 0;
@@ -56,24 +63,21 @@ $(document).ready(function() {
     $(".gamer2Score").empty();
     $(".gamer2OngoingScore").empty();
     $(".gamer2TotalScore").empty();
+    event.preventDefault();
   });
 
   $(".btn-roll1").click(function(event) {
-    gamer.froll;
-    $(".gamer1Score").text(gamer1.froll);
+    $(".gamer1Score").text(gamer1.froll());
     $(".gamer1OngoingScore").text(gamer1.ongoingScore);
-    $(".gamer1TotalScore").text(gamer1.totalScore);
   });
 
   $(".btn-roll2").click(function(event) {
-    $(".gamer2Score").text(gamer1.froll);
+    $(".gamer2Score").text(gamer2.froll());
     $(".gamer2OngoingScore").text(gamer2.ongoingScore);
-    $(".gamer2TotalScore").text(gamer2.totalScore);
   });
 
   $(".btn-hold1").click(function(event) {
-    gamer1.hold;
-    $(".gamer1TotalScore").text(gamer1.totalScore);
+    $(".gamer1TotalScore").text(gamer1.hold());
     $(".gamer1OngoingScore").empty();
     $(".gamer1Score").empty();
     gamer1.checkWinner();
@@ -81,11 +85,10 @@ $(document).ready(function() {
 
   $(".btn-hold2").click(function(event) {
     gamer2.hold;
-    $(".gamer2TotalScore").text(gamer2.totalScore);
+    $(".gamer2TotalScore").text(gamer2.hold());
     $(".gamer2OngoingScore").empty();
     $(".gamer2Score").empty();
     gamer2.checkWinner();
-    event.preventDefault();
 
   });
 
