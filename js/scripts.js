@@ -13,6 +13,7 @@ Gamer.prototype.froll = function() {
   var diceRandom = Math.floor((Math.random() * 6) + 1);
   if (diceRandom === 1) {
     this.ongoingScore = 0;
+    alert("you rolled a 1 HOLD for the other gamer ");
   } else {
     this.ongoingScore += diceRandom;
   };
@@ -37,7 +38,9 @@ Gamer.prototype.hold = function() {
 }
 
 Gamer.prototype.checkWinner = function() {
-  if (this.totalScore >= 100) {}
+  if (this.totalScore >= 100) {
+    alert('you won');
+  }
 }
 Gamer.prototype.newGame = function() {
   this.score = 0;
@@ -84,7 +87,6 @@ $(document).ready(function() {
   });
 
   $(".btn-hold2").click(function(event) {
-    gamer2.hold;
     $(".gamer2TotalScore").text(gamer2.hold());
     $(".gamer2OngoingScore").empty();
     $(".gamer2Score").empty();

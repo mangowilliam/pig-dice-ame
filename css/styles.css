@@ -78,3 +78,7 @@ h2 {
 #login {
   display: none;
 }
+
+.footer {
+  color: red;
+}
